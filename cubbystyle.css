@@ -1,0 +1,303 @@
+
+   body {
+         margin: 2px;
+    }
+
+   p { 
+         font-family: Tahoma;
+         font-size: 1.4vw;
+         text-indent: 30px;
+         margin: 30px;
+         text-shadow: 0 0 10px white, 0 0 10px white;
+    }
+
+
+    h1 {
+         font-family: Tahoma;
+         font-size: 5vw;
+         text-shadow: 0 0 10px black, 0 0 10px black;
+
+    }
+
+    h2 {
+         font-family: Tahoma;
+         font-size: 4.5vw;
+         text-shadow: 0 0 10px black, 0 0 10px black;
+    }
+    h3 {
+         font-family: Tahoma;
+         font-size: 4vw;
+         text-shadow: 0 0 10px black, 0 0 10px black;
+    }
+
+    h4 {
+         font-family: Tahoma;
+         font-size: 3vw;
+         text-shadow: 0 0 10px black, 0 0 10px black;
+    }
+
+    h5 {
+         font-family: Tahoma;
+         font-size: 2vw;
+         text-shadow: 0 0 10px black, 0 0 10px black;
+    }
+
+    h6 {
+         font-family: Tahoma;
+         font-size: 1.8vw;
+         text-shadow: 0 0 10px black, 0 0 10px black;
+    }
+
+    img {
+        border: 1px solid rgba(0,0,0,0.5);
+        border-radius: 8px;
+        margin: 20px;
+        
+        position: center;
+        max-width: 100%;
+        max-height: auto;
+    }
+
+    nav {
+    	 background-color: rgba(10,10,44,0.7);  
+    	 height:1000px;
+    	 border: 2px solid black;
+    	 border-radius:8px;
+    	 display: flex;
+         flex-direction: column;
+         vertical-align:top
+         
+         margin: 2px;
+
+         
+    }
+
+    nav a {
+         background-color: rgba(255, 255, 255, 0.4);
+         font-family: Tahoma;
+         font-size: 1.8vw;
+         color: white;
+         text-shadow: 0 0 15px black;
+         padding: 20px 20px;
+         text-align: left;
+         text-decoration: none;
+         
+         
+         margin: 5px auto 5px auto;
+         border: 2px solid black;
+         border-radius:8px;
+        
+
+     }
+
+    nav a::before {
+         background-image: url(images/raficon.png);
+         background-size: 20px 20px;
+         display: inline-block;
+         width: 20px; 
+         height: 20px;
+         content:"";
+         vertical-align: middle;
+    }
+
+    nav a:link, a:visited {
+    	background-color: rgba(255, 255, 255, 0.4);
+     }
+    
+    nav a:hover, a:active {
+    	background-color: rgba(255, 0, 0, 0.4);
+     }
+
+    header {     
+         text-align: center;
+         color: white;
+         text-shadow: 0px 0px 5px black;
+         border: 2px solid black;
+         border-radius: 8px;
+         background-image: url(images/lightphantom.jpg);
+         background-position: top;
+         background-color: rgba(0,0,0,0.3);
+         background-repeat: no-repeat;
+         background-size: cover;
+         margin: 2px;
+         display: flex;
+         flex-direction: row;
+         white-space: nowrap;
+
+    } 
+
+     .home { 
+    	font-size: 2vw;
+        padding: 30px 20px;
+        overflow:hidden;
+        margin: 5px auto 10px auto;
+        
+    } 
+
+     #currentpage {
+	     background-color: rgba(10,10,44,0.7);
+	     box-shadow: 0 0 3px white;
+    }
+
+    *:focus {
+         box-shadow: 0 0 12px orange !important;
+         outline-style: solid;
+         outline-color: rgba(0,0,0,0.0); 
+    }
+
+    .bannerline1 { 
+         margin: auto;
+         padding: 0px 10px; 
+     }
+
+    .bannerline2 {
+         margin: auto;
+         padding: 0px; 
+         font-style: italic;
+     }
+     
+     .heading1, .heading2 {
+         margin: 0;
+         padding: 0;
+     }
+
+    main {
+         background-image: url(images/background2.jpg); 
+         background-color: rgba(0,0,0,0.5);
+         background-repeat: repeat-y;
+         background-size: cover;
+         margin: 2px;
+    }
+
+    * { 
+         box-sizing: border-box;
+         outline: 1px solid black;
+    }
+
+    article {
+         border: 2px solid black;
+         border-radius: 8px;
+    }
+    
+    section {
+         border: 1px solid rgba(0,0,0,0.0);
+         border-radius: 8px;
+     }
+
+     .image {
+         border: 1px solid rgba(0,0,0,0.0);
+         border-radius: 8px;
+         
+     }
+
+     .logo {
+         border: 1px solid rgba(0,0,0,0.0);
+         border-radius: 8px;
+         
+         display: flex;
+         padding: 0 0 0 0;
+         margin: auto;
+         
+         
+         
+     }
+
+     .title {
+         display: flex;
+         flex-direction: column;
+         
+     }
+
+     .infobar {
+         border: 2px solid black;
+         border-radius: 8px; 
+         margin: 0 0 5px 0;
+         display: flex;
+         flex-direction: row;
+         
+     }
+
+     .searchbar {
+        
+         border: 2px solid black;
+         border-radius: 8px; 
+         margin: 0 0 5px 0;
+         display: flex;
+         flex-direction: row;
+         
+     }
+
+     input {
+         font-family: Tahoma;
+         font-size: 3vmin;
+         padding: 5px;
+        
+         
+         
+         margin: auto;
+     }
+
+     .socialicons {
+         display: flex;
+         flex: 15%%;
+         
+         padding: 3px;
+         
+     }
+
+
+@media screen and (min-width: 600px) {
+     
+     body {
+         display: flex;
+         flex-direction: row;
+         margin: auto;
+     }
+
+     main {
+         display: flex;
+         flex-direction: column;
+     }
+  
+     article {
+         display: flex;
+         
+         flex-direction: row;
+     }
+ 
+     nav {
+         display: flex;
+         
+         
+
+     }
+
+     header {
+         display: flex;
+         
+         
+     }
+
+     section {
+         display: flex;
+         
+     }
+
+
+     .firstcont {
+         display: flex;
+         flex-direction: column;
+         
+     }
+
+     .secondcont {
+         display: flex;
+         flex-direction: column;
+         
+     }
+
+     .image {
+        
+         
+     }
+}
