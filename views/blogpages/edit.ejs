@@ -1,0 +1,29 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+<body>
+<%- include("../partials/nav.ejs") %>
+<main>
+<%- include("../partials/header.ejs") %>
+<div class="background">
+<%- include("../partials/footer.ejs") %>
+<div class="pagebox">
+<div class="pageheading">
+<h4 class="heading">Edit Blog</h4>
+</div>
+
+ <form class="contact" action="/blog-admin/edit/<%= blog.id %>?_method=PUT" method="POST">
+   <%- include('_form_fields') %>
+ </form>
+ <div class="adminbar">
+  <form action="/blog-admin/edit/<%= blog.id %>?_method=DELETE" method="POST">
+    <button type="submit" class="adminbuttons delete">Delete</button>
+  </form>
+ </div>
+
+<%- include("../partials/footer.ejs") %> 
+</div>
+</div>
+</main>
+</body>
+</html>
+

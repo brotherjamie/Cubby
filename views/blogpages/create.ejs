@@ -1,0 +1,24 @@
+<html lang="en">
+<%- include("../partials/head.ejs") %>
+<body>
+<%- include("../partials/nav.ejs") %>
+<main>
+<%- include("../partials/header.ejs") %>
+<div class="background">
+<%- include("../partials/footer.ejs") %>
+<div class="pagebox">
+<div class="pageheading">
+  <h4 class="heading">New Blog</h4>
+</div>
+<div class="page-pad">
+  <form class="contact" action="/blog-admin/create" method="POST">
+    <%- include('_form_fields') %>
+  </form>
+</div>
+</div>
+<%- include("../partials/footer.ejs") %>   
+</div>
+</main>
+</body>
+</html>
+

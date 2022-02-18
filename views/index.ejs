@@ -1,0 +1,64 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<body>
+  <%- include("./partials/nav.ejs") %>
+ <main>
+      <%- include("./partials/header.ejs") %>
+<div class="background">
+      <%- include("./partials/footer.ejs") %>
+
+<article class="newsbar cushycms">
+  <a class="newsbox cushycms" href="/blog" target="blank" style="background-image: url('images/blank.png'), url('images/logo.jpg'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                                                                                                               
+    <h4 class="cushycms newstext" >Latest Blog Post:</h4>        
+      <p class="bloghead newstext"><%= latestBlog.title %></p>
+      <p class="date newstext"><%= latestBlog.createdAt.toLocaleDateString() %></p>
+  </a>
+  <a class="newsbox cushycms" href="https://cubbyholescalemodels.co.uk/product-category/merchandise" target="blank" style="background-image: url('images/blank.png'), url('images/cubbymug.jpg'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                    
+    <h4 class="cushycms newstext">Cubby Merchandise!</h4>
+    <p class="cushycms bloghead newstext">Want to support our group? Click here, and buy your own Cubby t-shirt here!</p>
+  </a>
+  <a class="newsbox cushycms" href="/hobbytips" target="blank" style="background-image: url('images/blank.png'), url('images/scenery/battle scenery.jpg'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                                     
+    <h4 class="cushycms newstext">Latest Hobby Article:</h4>
+    <p class="cushycms bloghead newstext">Want to make your own terrain and scenery? Here's a few ways to do it yourself! </p>
+  </a>
+</article>
+
+   	   <article class="page-pad">
+   	 	   <div id="cf4a">
+           <img class="cushycms cubbyimg" src="images/classiccar.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+           <img class="cushycms cubbyimg" src="images/mustang.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+           <img class="cushycms cubbyimg" src="images/phantom.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+         </div>
+   	 		 <section class="cushycms">
+   	 		   <p> We competently and quietly provide kits for people on any budget without any fuss.<br> Supplied new kits by: <br><strong>Airfix, Revell, Tamiya, ICM, Ryefield, Roden, Italieri</strong> and many more. <br> We specialise in locating and securing rare kits, new kits, collections, and pre-loved kits from nearly all manufacturers & Countries;
+   	 		   </p>
+   	 	   </section>
+   	   </article>
+
+   	   <article class="page-pad"> 
+   	 	   <section class="cushycms">
+   	 	 	   <p>  We also complete builds and/or dioramas (dynamic or static display) upon commission. <br> We use three different artists at the moment depending on genre, with impressive portfolios of completed work. <br> We are happy to undertake specialist builds for shop display windows, museums and for gifts. All the time we are focusing on honing and preserving the old school skills and service. </p>
+   	 	   </section>
+   	     <div id="cf4a">
+           <img class="cushycms cubbyimg" src="images/phantom.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+           <img class="cushycms cubbyimg" src="images/classiccar.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+           <img class="cushycms cubbyimg" src="images/mustang.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+          </div>
+   	   </article>
+
+   	   <article class="page-pad"> 
+   	 	   <div id="cf4a">
+           <img class="cushycms cubbyimg" src="images/mustang.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+           <img class="cushycms cubbyimg" src="images/phantom.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+           <img class="cushycms cubbyimg" src="images/classiccar.jpg" alt="Classic Car, Mustang and Phantom" title="Classic Car, Mustang and Phantom">
+        </div>
+   	     <section class="cushycms">
+   	     	 <p> We use three different artists at the moment depending on genre, with impressive portfolios of completed work. <br> Please feel free to browse our <a href="https://www.instagram.com/cubby_hole_scale_models/?hl=en" target="_blank" aria-label="Instagram"><strong>Instagram</strong></a> page. You can also find us on <a href="https://www.youtube.com/channel/UCGrC-E8BfHJlk25keXdv7Xw?sub_confirmation=1&app=desktop" target="_blank" aria-label="YouTube"><b>YouTube</b></a> and <a href="https://www.facebook.com/groups/460921228840896" target="_blank" aria-label="Facebook"><b>Facebook</b></a>
+   	     </section>
+   	   </article>
+             
+     <%- include("./partials/footer.ejs") %> 
+     </div>
+</main>
+</body>
+</html>

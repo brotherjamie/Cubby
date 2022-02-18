@@ -1,0 +1,146 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+<script type="text/javascript">
+      
+    (function () {
+        emailjs.init("user_l1KpJ0mIOLOJhzXrSTpx5");
+    })();
+
+var fields ={}
+
+document.addEventListener("DOMContentLoaded", function() {
+    fields.fullName = document.getElementById('fullName');
+    fields.email = document.getElementById('email');
+    fields.message = document.getElementById('message');
+    })
+
+    function isNotEmpty(value) {
+    if (value == null || typeof value == 'undefined' ) return false;
+    return (value.length > 0);
+    }
+
+    function isEmail(email) {
+    let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return regex.test(String(email).toLowerCase());
+    }
+
+    function fieldValidation(field, validationFunction) {
+    if (field == null) return false;
+
+    let isFieldValid = validationFunction(field.value)
+    if (!isFieldValid) {
+    field.className = 'placeholderRed';
+    } else {
+    field.className = '';
+    }
+
+    return isFieldValid;
+    }
+
+    function isValid() {
+    var valid = true;
+
+    valid &= fieldValidation(fields.fullName, isNotEmpty);
+    valid &= fieldValidation(fields.email, isEmail);
+    valid &= fieldValidation(fields.message, isNotEmpty);
+
+    return valid;
+    }
+
+    class User {
+    constructor(fullName, email, message) {
+    this.fullName = fullName;
+    this.email = email;
+    this.message = message;
+    }
+    }
+
+    
+
+    function sendContact() {
+  if (isValid()) {
+let usr = new User(fullName.value, email.value, message.value);
+sendmail();
+messageSent();
+fixCss();
+stopEmail();
+  } 
+  else {
+alert("there was an error")
+fixCss()
+  }
+  }
+
+  function fixCss() {
+    document.getElementById("fullName").className = "contact";
+    document.getElementById("email").className = "contact";
+ }
+
+ function stopEmail() {
+  document.getElementById("submitMessage").style.backgroundColor = "grey";
+  document.getElementById("submitMessage").onclick = null;
+ }
+
+
+    function sendmail() {
+    let fullName = document.getElementById("fullName").value;
+    let userEmail = document.getElementById("email").value;
+    let userMessage = document.getElementById("message").value;
+    var contactParems = { 
+    from_name: fullName,
+    from_email: userEmail,
+    message: userMessage
+    };
+    emailjs.send('service_j7tarwb', 'contact_form', contactParems).then(function (res) {})
+    }
+
+    function messageSent() {
+    document.getElementById("panel").style.display = "block";
+    }
+
+</script>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+   <main>
+
+      <%- include("./partials/header.ejs") %>
+<div class="background">
+      <%- include("./partials/footer.ejs") %>
+
+      <div class="pagebox">
+        <div class="pageheading">
+        <h2 class="heading">Contact Form</h2></div>
+
+        <form class="contact" name="myForm" method="post" onsubmit="return false">
+        <div class="contactrow">
+        <div class="contactcolumn">
+               <label>Name</label>
+               <input type="text" class="contact" id="fullName" name="fullName" placeholder="your name.." required>
+        </div>
+        <div class="contactcolumn">
+               <label>Email Address</label>
+               <input type="email" class="contact" id="email" name="email" placeholder="your email address.." required>
+        </div>
+        </div>
+        <div class="contactcolumn">
+               <label>Message</label>
+               <textarea id="message" name="message" rows="6" placeholder="write your message here..." required></textarea>
+        <div class="buttonbox">
+               <button  type="submit" id="submitMessage" onclick="sendContact();" class="submit">Send</button>
+        </div>
+        </div>
+        </form>
+
+        <div id="panel">
+        <p id="flip"> <h5> Message Sent! <br><br>
+        We will get back to you shortly.<br>
+        Please feel free to continue viewing the Cubby Website.</h5>
+        </p>
+        </div>
+        </div>
+     <%- include("./partials/footer.ejs") %> 
+     </div>
+   </main>
+  </body>
+</html>
