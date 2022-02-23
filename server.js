@@ -1,7 +1,6 @@
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
   }
-
 const express = require('express')
 const mongoose = require('mongoose')
 const Blog = require('./models/blogmodel')
@@ -22,6 +21,7 @@ app.use('/blog-admin', express.static(__dirname + '/public'))
 app.use('/blog-admin/edit', express.static(__dirname + '/public'))
 app.use('/blog-admin/create', express.static(__dirname + '/public'))
 app.use(methodOverride('_method'))
+app.use(express.urlencoded({ limit: '10mb', extended: false }))
 
 app.get('/', async (req, res) => {
     const blogs = await Blog.find().sort({ createdAt: 'desc' })

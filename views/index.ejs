@@ -8,7 +8,7 @@
       <%- include("./partials/footer.ejs") %>
 
 <article class="newsbar cushycms">
-  <a class="newsbox cushycms" href="/blog" target="blank" style="background-image: url('images/blank.png'), url('images/logo.jpg'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                                                                                                               
+  <a class="newsbox cushycms" href="/blog" target="blank" style="background-image: url('images/blank.png'), url('<%= latestBlog.coverImagePath %>'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                                                                                                               
     <h4 class="cushycms newstext" >Latest Blog Post:</h4>        
     <p class="bloghead newstext"><%= latestBlog.title %></p>
       <p class="date newstext"><%= latestBlog.createdAt.toLocaleDateString() %></p>

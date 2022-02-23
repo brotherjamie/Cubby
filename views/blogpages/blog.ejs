@@ -17,9 +17,14 @@
   <% blogs.forEach(blog => { %>
    <a href="#/blog/<%= blog.id %>" class="bloghover">
      <div class="blogbox">
+       <div class="inputrow">
+         <div class="inputcolumn">
      <h4 class="bloghead"><%= blog.title %></h4>
      <p class="date"><%= blog.createdAt.toLocaleDateString() %></p>
      <p class="summary"><%= blog.summary %></p>
+        </div>
+        <div class="inputcolumn"><img height="250" class="cubbyimg" src="<%= blog.coverImagePath %>"></div>
+         </div>
     </a>
 
  <div class="reveal blogbody" id="/blog/<%= blog.id %>">

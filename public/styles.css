@@ -461,6 +461,18 @@ button.search {
       justify-content: center;
 }
 
+.inputrow {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+}
+
+.inputcolumn {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+}
+
 .social {
       display: flex;
       flex: 2;
