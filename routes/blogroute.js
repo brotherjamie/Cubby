@@ -24,34 +24,14 @@ router.delete('/edit/:id', async (req, res) => {
   }
 })
 
-// //save function
-// function saveBlogAndRedirect(path) {
-//   return async (req, res) => {
-//       const fileName = req.file != null ? req.file.filename : null
-//       let blog = req.blog
-//       blog.title = req.body.title
-//       blog.summary = req.body.summary
-//       blog.body = req.body.body
-//       coverImageName = fileName   //Captial N?
-//       try {
-//         blog = await blog.save()
-//         res.redirect('/blog-admin')
-//       } catch (e) {
-//         res.render(`blogpages/${path}`, { blog: blog, blogs: blogs })
-//         console.log(e)
-//       }
-//     }
-// }
-
-// Create Book - MYBRARY METHOD
+// Create Blog
 router.post('/create', async (req, res) => {
  const blog = new Blog({
    title: req.body.title,
    summary: req.body.summary,
-   body: req.body.body,
+   body: req.body.body
  })
 saveCover(blog, req.body.cover) //this deals with image/s
-
  try {
     const newBlog = await blog.save()
     res.redirect('/blog-admin')
@@ -60,38 +40,25 @@ saveCover(blog, req.body.cover) //this deals with image/s
  }
 }) 
 
-// post editted NEW
+// post editted Blog
 router.put('/edit/:id', async (req, res) => {
-  const filename = req.file != null ? req.file.filename : null
- const blog = new Blog({
-   title: req.body.title,
-   summary: req.body.summary,
-   body: req.body.body,
-   coverImageName: filename
- })
+ let author
  try {
-    const newBlog = await blog.save()
+    blog = await Blog.findById(req.params.id)
+    blog.title = req.body.title,
+    blog.summary = req.body.summary,
+    blog.body = req.body.body
+    saveCover(blog, req.body.cover)
+    await blog.save()
     res.redirect('/blog-admin')
  } catch {
-   if (blog.coverImageName != null) {
-   removeBlogCover(blog.coverImageName)
-  }
-  renderNewPage(res, blog, true)
+   if (author == null) {
+     res.redirect('/blog-admin')
+   } else { 
+     renderNewPage(res, blog, true)
+   }
  }
 }) 
-
-// post editted blog OLD
-// router.put('/edit/:id', async (req, res, next) => {
-//     req.blog = await Blog.findById(req.params.id)
-//     next()
-// }, saveBlogAndRedirect('/blog-admin'))
-
-// post new blog OLD
-// router.post('/create', upload.single('cover'), async (req, res, next) => {
-//   const fileName = req.file != null ? req.file.filename : null
-//     req.blog = new Blog()
-//     next()
-// }, saveBlogAndRedirect('blog-admin'))
 
 async function renderNewPage(res, blog, hasError = false) {
   try {
