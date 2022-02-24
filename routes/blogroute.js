@@ -40,22 +40,24 @@ saveCover(blog, req.body.cover) //this deals with image/s
  }
 }) 
 
-// post editted Blog
+// post edited Blog
 router.put('/edit/:id', async (req, res) => {
- let author
+ let blog
  try {
     blog = await Blog.findById(req.params.id)
     blog.title = req.body.title,
     blog.summary = req.body.summary,
     blog.body = req.body.body
+    if (req.body.cover != null && req.body.cover !== '') {
     saveCover(blog, req.body.cover)
+    }
     await blog.save()
     res.redirect('/blog-admin')
  } catch {
-   if (author == null) {
-     res.redirect('/blog-admin')
-   } else { 
-     renderNewPage(res, blog, true)
+   if (blog != null) {
+     renderEditPage(res, book, true)
+   } else {
+    redirect('/blog-admin')
    }
  }
 }) 
@@ -72,6 +74,27 @@ async function renderNewPage(res, blog, hasError = false) {
      res.redirect('blog-admin')
    }
 }
+
+async function renderEditPage(res, blog, hasError = false) {
+  try {
+    const blogs = await Blog.find({})
+    const params = {
+      blog: blog
+    }
+    if (hasError) params.errorMessage = 'Error Editing Blog'
+    res.render('blog-admin/edit', params)
+  } catch {
+     res.redirect('blog-admin')
+   }
+}
+
+// async function renderNewPage(res, blog, hasError = false) {
+//   renderFormPage(res, book, 'create', hasError)
+// }
+
+// async function renderEditPage(res, blog, hasError = false) {
+//   renderFormPage(res, book, 'edit', hasError)
+// }
 
 function saveCover(blog, coverEncoded) {
   if (coverEncoded == null) return

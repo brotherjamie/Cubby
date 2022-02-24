@@ -12,7 +12,26 @@
 </div>
 <div class="page-pad">
   <form class="contact" action="/blog-admin/create" method="POST">
-    <%- include('_form_fields') %>
+    <div class="inputrow">
+      <div class="inputcolumn">
+        <label for="title">Blog title:</label>
+        <input required value="<%= blog.title %>" class="contact" type="text" id="title" name="title" >
+        <label for="summary">Blog summary:</label>
+        <input required value="<%= blog.summary %>" class="contact" type="text" id="summary" name="summary" >
+      </div>
+      <div class="inputcolumn">
+        <label for="cover">Cover Image</label>
+        <input required class="contact filepond" type="file" id="cover" name="cover" >
+      </div>
+    </div>
+      <div class="inputcolumn">
+        <label for="body">Blog body:</label>
+        <textarea class="fixresize" required rows="7" cols="40" class="contact" id="body" name="body" ><%= blog.body %></textarea>
+      </div>
+      <div class="adminbar">
+        <a href="/blog-admin" class="adminbuttons cancelblog">Cancel</a>
+        <button type="submit" class="adminbuttons newblog">Save</button>
+      </div>
   </form>
 </div>
 </div>
