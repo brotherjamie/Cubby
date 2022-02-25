@@ -14,24 +14,57 @@
   <form class="contact" action="/blog-admin/create" method="POST">
     <div class="inputrow">
       <div class="inputcolumn">
-        <label for="title">Blog title:</label>
-        <input required value="<%= blog.title %>" class="contact" type="text" id="title" name="title" >
-        <label for="summary">Blog summary:</label>
-        <input required value="<%= blog.summary %>" class="contact" type="text" id="summary" name="summary" >
+       <label for="title">Blog title:</label>
+       <input required value="<%= blog.title %>" class="contact" type="text" id="title" name="title" >
+       <label for="author">Written By:</label>
+       <input required value="<%= blog.author %>" class="contact" type="text" id="author" name="author" >
+       <label for="summary">Blog summary:</label>
+       <input required value="<%= blog.summary %>" class="contact" type="text" id="summary" name="summary" >
       </div>
       <div class="inputcolumn">
-        <label for="cover">Cover Image</label>
-        <input required class="contact filepond" type="file" id="cover" name="cover" >
+       <label for="cover">Cover Image</label>
+       <input required class="contact filepond" type="file" id="cover" name="cover" >
       </div>
     </div>
-      <div class="inputcolumn">
-        <label for="body">Blog body:</label>
-        <textarea class="fixresize" required rows="7" cols="40" class="contact" id="body" name="body" ><%= blog.body %></textarea>
-      </div>
-      <div class="adminbar">
+    
+    <div class="inputrow">
+     <div class="inputcolumn">
+       <label for="cover">Main Image</label>
+       <!-- <input class="contact filepond" type="file" id="cover" name="cover" > -->
+     </div>
+     <div class="inputcolumn blogwide">
+       <label for="body">Main Text:</label>
+       <textarea class="fixresize" required rows="6" cols="40" class="contact" id="body" name="body" ><%= blog.body %></textarea>
+     </div>
+    </div>
+      
+    <div class="inputrow">
+     <div class="inputcolumn blogwide">
+       <label for="body2">2nd Text (optional):</label>
+       <textarea class="fixresize" rows="4" cols="40" class="contact" id="body2" name="body2" ><%= blog.body2 %></textarea>
+     </div>
+     <div class="inputcolumn">
+       <label for="cover">2nd Image (optional):</label>
+       <!-- <input class="contact filepond" type="file" id="cover" name="cover" >   -->
+     </div>
+    </div>
+      
+    <div class="inputrow">
+     <div class="inputcolumn">
+       <label for="cover">3rd Image (optional):</label>
+       <!-- <input class="contact filepond" type="file" id="cover" name="cover" > -->
+     </div>
+     <div class="inputcolumn blogwide">
+       <label for="body3">3rd text (optional):</label>
+       <textarea class="fixresize" rows="4" cols="40" class="contact" id="body3" name="body3" ><%= blog.body3 %></textarea>
+     </div>
+    </div>
+    
+    
+    <div class="adminbar">
         <a href="/blog-admin" class="adminbuttons cancelblog">Cancel</a>
         <button type="submit" class="adminbuttons newblog">Save</button>
-      </div>
+    </div>
   </form>
 </div>
 </div>

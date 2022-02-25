@@ -21,9 +21,14 @@
   <% blogs.forEach(blog => { %>
     <a class="bloghover" href="#/blog/<%= blog.id %>">
      <div class="blogbox">
-     <h4 class="bloghead"><%= blog.title %></h4>
-     <p class="date"><%= blog.createdAt.toLocaleDateString() %></p>
+      <div class="inputrow">
+        <div class="inputcolumn">
+     <p class="bloghead"><%= blog.title %></p>
+      <p class="blogauthor">Written by: <%= blog.author %><br><span class="date"><%= blog.createdAt.toLocaleDateString() %></span></p>
      <p class="summary"><%= blog.summary %></p>
+    </div>
+     <div class="inputcolumn"><img height="250" class="cubbyimg" src="<%= blog.coverImagePath %>"></div>
+     </div>
     </a>
 
  <div class="adminbar">
@@ -32,7 +37,22 @@
  
  <div class="reveal blogbody" id="/blog/<%= blog.id %>">
   <a href="#"></a>
-  <div><p><%= blog.body %></p></div>     
+  <div class="inputrow">
+    <div class="inputcolumn"><p><%= blog.body %></p></div>
+</div>
+
+
+
+<% if (blog.body2 != null && blog.body2 !== '') { %>
+  <div class="inputrow">
+    <div class="inputcolumn"><p><%= blog.body2 %></p></div>
+</div>
+<% } %>
+<% if (blog.body3 != null && blog.body3 !== '') { %>
+  <div class="inputrow">
+    <div class="inputcolumn"><p><%= blog.body3 %></p></div> 
+</div>
+<% } %>
  </div>
 </div>
 

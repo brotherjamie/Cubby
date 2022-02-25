@@ -312,22 +312,32 @@ nav a:hover, nav a:active, nav a:focus, a.sociali:hover, a.sociali:focus {
 }
 
 .newstext {
-      flex: 3;
-      text-align: left;
       color: black;
       padding: none;
       margin: 0.5vw 1vw;
       text-shadow: 0 0 1vw white, 0 0 1vw white, 0 0 3vw white, 0 0 1vw white, 0 0 3vw white;
-      align-items: center;
-}
-
-p.newstext {
-      font-size: 1.6em;
-      text-shadow: 0 0 1vw white, 0 0 1vw white, 0 0 3vw white, 0 0 1vw white, 0 0 3vw white;
+      font-size: 1.2em;
+      flex: 3;
 }
 
 p.newstext.date {
       text-align: right;
+      flex: 1 !important;
+}
+
+.newshead {
+flex: 1;
+text-align: left;
+}
+
+.newsbody {
+flex: 3;
+display: flex;
+flex-direction: column;
+/* justify-content: flex-end; */
+margin-top: auto;
+margin-bottom: 0;
+/* vertical-align: text-bottom; */
 }
 
 .raficon {
@@ -782,12 +792,12 @@ height: 85%;
 }
 
 .bloghead {
-    color: black;
-      text-shadow: none;
+      color: black;
+      font-size: 1.4em;
       display: flex;
       flex-direction: column;
-      text-indent: 5vw;
-      font-weight: normal;
+      text-align: center;
+      font-weight: bold;
 }
 
 .date {
@@ -831,6 +841,16 @@ height: 85%;
 .summary {
     text-decoration: none;
     color: black;
+    text-align: center;
+    font-size: 1.3em;
+    margin: 1vw;
+}
+
+.blogauthor {
+      text-decoration: none;
+    color: black;
+    text-align: center;
+    margin: 1vw;
 }
 
 .blogbody {
@@ -903,6 +923,10 @@ height: 85%;
 .bloghover:hover {
     box-shadow: 0 0 1.2vw orange !important;
     outline: 0.1vw solid rgba(0,0,0,0.0);
+}
+
+.blogwide {
+      flex: 2;
 }
 
 
@@ -1002,7 +1026,7 @@ height: 85%;
   }
 
   h4 {
-      font-size: 1.1em;
+      font-size: 1em;
   }
 
   label.contact, input.contact, label, select, option, textarea, input {

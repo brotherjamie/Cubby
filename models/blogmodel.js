@@ -10,12 +10,22 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  author: {
+    type: String,
+    required: true
+  },
   summary: {
     type: String
   },
   body: {
     type: String,
     required: true
+  },
+  body2: {
+    type: String
+  },
+  body3: {
+    type: String
   },
   createdAt: {
     type: Date,

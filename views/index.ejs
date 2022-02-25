@@ -9,17 +9,24 @@
 
 <article class="newsbar cushycms">
   <a class="newsbox cushycms" href="/blog" target="blank" style="background-image: url('images/blank.png'), url('<%= latestBlog.coverImagePath %>'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                                                                                                               
-    <h4 class="cushycms newstext" >Latest Blog Post:</h4>        
-    <p class="bloghead newstext"><%= latestBlog.title %></p>
+    <div class="newshead"><h4 class="cushycms newstext" >Latest Blog Post:</h4></div>
+    <div class="newsbody">
+    <% if (blogs.length > 0) { %>        
+      <p class="newstext"><%= latestBlog.title %></p>
       <p class="date newstext"><%= latestBlog.createdAt.toLocaleDateString() %></p>
+     <% } else { %>
+      <p>There are no blogs to display...</p>
+    <% } %> 
+    </div>
   </a>
   <a class="newsbox cushycms" href="https://cubbyholescalemodels.co.uk/product-category/merchandise" target="blank" style="background-image: url('images/blank.png'), url('images/cubbymug.jpg'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                    
-    <h4 class="cushycms newstext">Cubby Merchandise!</h4>
-    <p class="cushycms bloghead newstext">Want to support our group? Click here, and buy your own Cubby t-shirt here!</p>
-  </a>
+    <div class="newshead"><h4 class="cushycms newstext">Cubby Merchandise!</h4></div>
+    <div class="newsbody"><p class="cushycms newstext">Want to support our group? Click here, and buy your own Cubby t-shirt here!</p>
+    </div>
+    </a>
   <a class="newsbox cushycms" href="/hobbytips" target="blank" style="background-image: url('images/blank.png'), url('images/scenery/battle scenery.jpg'); background-repeat: no-repeat, no-repeat; background-size: cover, cover;">                                                     
-    <h4 class="cushycms newstext">Latest Hobby Article:</h4>
-    <p class="cushycms bloghead newstext">Want to make your own terrain and scenery? Here's a few ways to do it yourself! </p>
+    <div class="newshead"><h4 class="cushycms newstext">Latest Hobby Article:</h4></div>
+      <div class="newsbody"><p class="cushycms newstext">Want to make your own terrain and scenery? Here's a few ways to do it yourself! </p></div>
   </a>
 </article>
 
