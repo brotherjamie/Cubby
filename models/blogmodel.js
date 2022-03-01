@@ -47,7 +47,27 @@ const blogSchema = new mongoose.Schema({
  coverImageType: {
     type: String,
     required: true
-  } 
+  },
+  mainImage: {
+    type: Buffer,
+    required: true
+  },
+ mainImageType: {
+    type: String,
+    required: true
+  },
+  pic2Image: {
+    type: Buffer
+  },
+ pic2ImageType: {
+    type: String
+  },
+  pic3Image: {
+    type: Buffer
+  },
+ pic3ImageType: {
+    type: String
+  }
 })
 
 blogSchema.pre('validate', function(next) {
@@ -60,12 +80,38 @@ blogSchema.pre('validate', function(next) {
         this.sanitizedHtml = dompurify.sanitize(marked.parse(this.body))
   }
 
+  if (this.body2) {
+        this.sanitizedHtml = dompurify.sanitize(marked.parse(this.body2))
+  }
+
+  if (this.body3) {
+        this.sanitizedHtml = dompurify.sanitize(marked.parse(this.body3))
+  }
+
   next()
 })
 
 blogSchema.virtual('coverImagePath').get(function() {
   if (this.coverImage != null && this.coverImageType != null) {
     return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
+  }
+})
+
+blogSchema.virtual('mainImagePath').get(function() {
+  if (this.mainImage != null && this.mainImageType != null) {
+    return `data:${this.mainImageType};charset=utf-8;base64,${this.mainImage.toString('base64')}`
+  }
+})
+
+blogSchema.virtual('pic2ImagePath').get(function() {
+  if (this.pic2Image != null && this.pic2ImageType != null) {
+    return `data:${this.pic2ImageType};charset=utf-8;base64,${this.pic2Image.toString('base64')}`
+  }
+})
+
+blogSchema.virtual('pic3ImagePath').get(function() {
+  if (this.pic3Image != null && this.pic3ImageType != null) {
+    return `data:${this.pic3ImageType};charset=utf-8;base64,${this.pic3Image.toString('base64')}`
   }
 })
 

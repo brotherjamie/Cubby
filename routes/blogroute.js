@@ -95,6 +95,15 @@ function saveBlogAndRedirect(path) {
         if (req.body.cover != null && req.body.cover !== '') {
           saveCover(blog, req.body.cover)
           }
+        if (req.body.main != null && req.body.main !== '') {
+          saveMain(blog, req.body.main)
+          }  
+        if (req.body.pic2 != null && req.body.pic2 !== '') {
+          savePic2(blog, req.body.pic2)
+          }  
+        if (req.body.pic3 != null && req.body.pic3 !== '') {
+          savePic3(blog, req.body.pic3)
+          }  
         blog = await blog.save()
         res.redirect('/blog-admin')
       } catch (e) {
@@ -137,6 +146,33 @@ function saveCover(blog, coverEncoded) {
   if (cover != null && imageMimeTypes.includes(cover.type)) {
     blog.coverImage = new Buffer.from(cover.data, 'base64')
     blog.coverImageType = cover.type
+  }
+}
+
+function saveMain(blog, mainEncoded) {
+  if (mainEncoded == null) return
+  const main = JSON.parse(mainEncoded)
+  if (main != null && imageMimeTypes.includes(main.type)) {
+    blog.mainImage = new Buffer.from(main.data, 'base64')
+    blog.mainImageType = main.type
+  }
+}
+
+function savePic2(blog, pic2Encoded) {
+  if (pic2Encoded == null) return
+  const pic2 = JSON.parse(pic2Encoded)
+  if (pic2 != null && imageMimeTypes.includes(pic2.type)) {
+    blog.pic2Image = new Buffer.from(pic2.data, 'base64')
+    blog.pic2ImageType = pic2.type
+  }
+}
+
+function savePic3(blog, pic3Encoded) {
+  if (pic3Encoded == null) return
+  const pic3 = JSON.parse(pic3Encoded)
+  if (pic3 != null && imageMimeTypes.includes(pic3.type)) {
+    blog.pic3Image = new Buffer.from(pic3.data, 'base64')
+    blog.pic3ImageType = pic3.type
   }
 }
 

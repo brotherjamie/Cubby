@@ -475,13 +475,12 @@ button.search {
 .inputrow {
       display: flex;
       flex-direction: row;
-      flex: 1;
+      /* flex: 1; */
 }
 
 .inputcolumn {
       display: flex;
       flex-direction: column;
-      flex: 1;
 }
 
 .social {
@@ -733,14 +732,8 @@ form.contact {
   object-fit: cover;
 }
 
-.blogcover {
-      display: block;
-      width: 100%;
-      height: 100%;
-      max-height: 40vh;
-      object-fit: cover;
-      border-radius: 0 0.8vw 0.8vw 0;
-    }
+
+
 
 .trans {
  transition: all 1s ease;
@@ -802,7 +795,7 @@ height: 85%;
       margin: 0.5vw;
 }
 
-.bloghead {
+.blogtitle {
       color: black;
       font-size: 1.4em;
       display: flex;
@@ -833,10 +826,45 @@ height: 85%;
     border: 0.1vw solid rgb(65, 65, 65);
     border-radius: 0.8vw;
     display: flex;
-      flex-flow: column wrap;
-      flex: 1; 
-      margin-bottom: 0.5vw;
-      position: relative;
+    flex-flow: column wrap;
+    margin-bottom: 0.5vw;
+}
+
+.blogcoverbox {
+     display: flex;
+     flex: 3;
+}
+
+.bloghead {
+     display: flex; 
+     flex: 4; 
+     min-height: 22vw;
+}
+
+.blogpicbox {
+     display: flex;
+     flex: 3;
+}
+      
+.blogwords {
+     display: flex; 
+     flex: 4; 
+}
+
+.blogcover {
+      max-width: 100%;
+      max-height: 22vw;
+      padding: 1vw;
+      object-fit: cover;
+      border-radius: 1.6vw;
+}
+
+.blogimage {
+      max-width: 100%;
+      max-height: 100%;
+      padding: 1vw;
+      object-fit: cover;
+      border-radius: 1.6vw;
 }
 
 .reveal {
@@ -867,6 +895,8 @@ height: 85%;
 .blogbody {
     flex-direction: column;  
 }
+
+
 
 .adminbuttons {
     color: rgb(255, 255, 255);
@@ -941,10 +971,17 @@ height: 85%;
       flex: 2;
 }
 
+.file {
+      flex: 1;
+}
+
 .inputcolumn img {
       margin: auto 0;
 }
 
+.pondstyle {
+      margin: 0.3vw;
+}
 
                                              @media screen and (max-width: 700px) {
  

@@ -22,12 +22,12 @@
     <a class="bloghover" href="#/blog/<%= blog.id %>">
      <div class="blogbox">
       <div class="inputrow">
-        <div class="inputcolumn">
-     <p class="bloghead"><%= blog.title %></p>
+        <div class="inputcolumn bloghead">
+     <p class="blogtitle"><%= blog.title %></p>
       <p class="blogauthor">Written by: <%= blog.author %><br><span class="date"><%= blog.createdAt.toLocaleDateString() %></span></p>
      <p class="summary"><%= blog.summary %></p>
     </div>
-     <div class="inputcolumn"><img height="250" class="blogcover" src="<%= blog.coverImagePath %>"></div>
+     <div class="inputcolumn blogcoverbox"><img class="blogcover" src="<%= blog.coverImagePath %>"></div>
      </div>
     </a>
 
@@ -38,19 +38,21 @@
  <div class="reveal blogbody" id="/blog/<%= blog.id %>">
   <a href="#"></a>
   <div class="inputrow">
-    <div class="inputcolumn"><p><%= blog.body %></p></div>
+    <div class="inputcolumn blogpicbox"><img class="blogimage" src="<%= blog.mainImagePath %>"></div>
+    <div class="inputcolumn blogwords"><p><%= blog.body %></p></div>
 </div>
-
-
 
 <% if (blog.body2 != null && blog.body2 !== '') { %>
   <div class="inputrow">
-    <div class="inputcolumn"><p><%= blog.body2 %></p></div>
+    <div class="inputcolumn blogwords"><p><%= blog.body2 %></p></div>
+    <div class="inputcolumn blogpicbox"><img class="blogimage" src="<%= blog.pic2ImagePath %>"></div>
 </div>
 <% } %>
+
 <% if (blog.body3 != null && blog.body3 !== '') { %>
   <div class="inputrow">
-    <div class="inputcolumn"><p><%= blog.body3 %></p></div> 
+    <div class="inputcolumn blogpicbox"><img class="blogimage" src="<%= blog.pic3ImagePath %>"></div>
+    <div class="inputcolumn blogwords"><p><%= blog.body3 %></p></div> 
 </div>
 <% } %>
  </div>

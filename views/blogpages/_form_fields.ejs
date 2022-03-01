@@ -1,5 +1,5 @@
 <div class="inputrow">
-  <div class="inputcolumn">
+  <div class="inputcolumn blogwide">
    <label for="title">Blog title:</label>
    <input required value="<%= blog.title %>" class="contact" type="text" id="title" name="title" >
    <label for="author">Written By:</label>
@@ -7,16 +7,16 @@
    <label for="summary">Blog summary:</label>
    <input required value="<%= blog.summary %>" class="contact" type="text" id="summary" name="summary" >
   </div>
-  <div class="inputcolumn">
+  <div class="inputcolumn file">
    <label for="cover">Cover Image</label>
-   <input class="contact filepond" type="file" id="cover" name="cover" >
+   <input class="filepond pondstyle" type="file" id="cover" name="cover" >
   </div>
 </div>
 
 <div class="inputrow">
- <div class="inputcolumn">
-   <label for="cover">Main Image</label>
-   <!-- <input class="contact filepond" type="file" id="cover" name="cover" > -->
+ <div class="inputcolumn file">
+   <label for="main">Main Image</label>
+   <input class="filepond pondstyle" type="file" id="main" name="main" >
  </div>
  <div class="inputcolumn blogwide">
    <label for="body">Main Text:</label>
@@ -29,16 +29,16 @@
    <label for="body2">2nd Text (optional):</label>
    <textarea class="fixresize" rows="4" cols="40" class="contact" id="body2" name="body2" ><%= blog.body2 %></textarea>
  </div>
- <div class="inputcolumn">
-   <label for="cover">2nd Image (optional):</label>
-   <!-- <input class="contact filepond" type="file" id="cover" name="cover" >   -->
+ <div class="inputcolumn file">
+   <label for="pic2">2nd Image (optional):</label>
+   <input class="filepond pondstyle" type="file" id="pic2" name="pic2" >  
  </div>
 </div>
   
 <div class="inputrow">
- <div class="inputcolumn">
-   <label for="cover">3rd Image (optional):</label>
-   <!-- <input class="contact filepond" type="file" id="cover" name="cover" > -->
+ <div class="inputcolumn file">
+   <label for="pic3">3rd Image (optional):</label>
+   <input class="filepond pondstyle" type="file" id="pic3" name="pic3" >
  </div>
  <div class="inputcolumn blogwide">
    <label for="body3">3rd text (optional):</label>
