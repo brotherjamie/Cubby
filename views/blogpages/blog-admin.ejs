@@ -27,7 +27,7 @@
       <p class="blogauthor">Written by: <%= blog.author %><br><span class="date"><%= blog.createdAt.toLocaleDateString() %></span></p>
      <p class="summary"><%= blog.summary %></p>
     </div>
-     <div class="inputcolumn"><img height="250" class="cubbyimg" src="<%= blog.coverImagePath %>"></div>
+     <div class="inputcolumn"><img height="250" class="blogcover" src="<%= blog.coverImagePath %>"></div>
      </div>
     </a>
 
@@ -69,23 +69,6 @@
 <%- include("../partials/footer.ejs") %> 
 </div>
 </main>
-
-<script>
-  $(document).ready(function(){
-    $('a[href^="#"]').on('click',function (e) {
-        e.preventDefault();
-  
-        var target = this.hash,
-        $target = $(target);
-  
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        });
-    });
-  });
-  </script>
   
 </body>
 </html> 

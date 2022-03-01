@@ -15,7 +15,6 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
 app.set('view engine', 'ejs')
-app.use(express.urlencoded({ extended: false}))
 app.use(express.static('public'))
 app.use('/blog-admin', express.static(__dirname + '/public'))
 app.use('/blog-admin/edit', express.static(__dirname + '/public'))
