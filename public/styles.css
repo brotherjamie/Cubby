@@ -475,7 +475,6 @@ button.search {
 .inputrow {
       display: flex;
       flex-direction: row;
-      /* flex: 1; */
 }
 
 .inputcolumn {
@@ -1224,7 +1223,19 @@ height: 85%;
       .logo { 
             flex: 2;
       } 
+      .inputrow {
+            display: flex;
+            flex-direction: column;
+      }
 
+      .blogcover {
+            max-height: 40vw;
+      }
+
+      .blogbox {
+            margin-bottom: 1vw;
+        }
+      
 }
 
 @media screen and (max-width: 500px) {
