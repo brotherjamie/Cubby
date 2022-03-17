@@ -24,55 +24,11 @@ router.delete('/edit/:id', async (req, res) => {
   }
 })
 
-// Create Blog
-// router.post('/create', async (req, res) => {
-//  const blog = new Blog({
-//    title: req.body.title,
-//    author: req.body.author,
-//    summary: req.body.summary,
-//    body: req.body.body,
-//    body2: req.body.body,
-//    body3: req.body.body
-//  })
-// saveCover(blog, req.body.cover) //this deals with image/s
-//  try {
-//     const newBlog = await blog.save()
-//     res.redirect('/blog-admin')
-//  } catch {
-//   renderNewPage(res, blog, true)
-//  }
-// }) 
-
 //post new blog
 router.post('/create', async (req, res, next) => {
   req.blog = new Blog()
   next()
 }, saveBlogAndRedirect('blog-admin'))
-
-// post edited Blog
-// router.put('/edit/:id', async (req, res) => {
-//  let blog
-//  try {
-//     blog = await Blog.findById(req.params.id)
-//     blog.title = req.body.title,
-//     blog.author = req.body.author,
-//     blog.summary = req.body.summary,
-//     blog.body = req.body.body,
-//     blog.body2 = req.body.body2,
-//     blog.body3 = req.body.body3
-//     if (req.body.cover != null && req.body.cover !== '') {
-//     saveCover(blog, req.body.cover)
-//     }
-//     await blog.save()
-//     res.redirect('/blog-admin')
-//  } catch {
-//    if (blog != null) {
-//      renderEditPage(res, blog, true)
-//    } else {
-//     redirect('/blog-admin')
-//    }
-//  }
-// }) 
 
 // post edited blog
 router.put('/edit/:id', async (req, res, next) => {
@@ -80,23 +36,22 @@ router.put('/edit/:id', async (req, res, next) => {
   next()
 }, saveBlogAndRedirect('/blog-admin'))
 
-
 // save function
 function saveBlogAndRedirect(path) {
   return async (req, res) => {
-      let blog = req.blog
-      blog.title = req.body.title
-      blog.author = req.body.author
-      blog.summary = req.body.summary
-      blog.body = req.body.body
-      blog.body2 = req.body.body2
-      blog.body3 = req.body.body3
-      try {
+   let blog = req.blog
+   blog.title = req.body.title
+   blog.author = req.body.author
+   blog.summary = req.body.summary
+   blog.body = req.body.body
+   blog.body2 = req.body.body2
+   blog.body3 = req.body.body3
+   try {
         if (req.body.cover != null && req.body.cover !== '') {
           saveCover(blog, req.body.cover)
           }
-        if (req.body.main != null && req.body.main !== '') {
-          saveMain(blog, req.body.main)
+        if (req.body.pic1 != null && req.body.pic1 !== '') {
+          savePic1(blog, req.body.pic1)
           }  
         if (req.body.pic2 != null && req.body.pic2 !== '') {
           savePic2(blog, req.body.pic2)
@@ -105,39 +60,15 @@ function saveBlogAndRedirect(path) {
           savePic3(blog, req.body.pic3)
           }  
         blog = await blog.save()
-        res.redirect('/blog-admin')
-      } catch (e) {
-        const blogs = await Blog.find().sort({ createdAt: 'desc' })
-        res.render(`blogpages/${path}`, { blog: blog, blogs: blogs })
-        console.log(e)
-      }
-    }
-}
-
-async function renderNewPage(res, blog, hasError = false) {
-  try {
-    const blogs = await Blog.find({})
-    const params = {
-      blog: blog
-    }
-    if (hasError) params.errorMessage = 'Error Creating Blog'
-    res.render('blog-admin/create', params)
-  } catch {
-     res.redirect('blog-admin')
+        res.redirect('/blog-admin') 
+   } catch  {
+        res.render('blogpages/create', { 
+        title: 'Create a New Blog', 
+        blog: blog, 
+        errorMessage: 'Blog failed to Save.'
+        })
    }
-}
-
-async function renderEditPage(res, blog, hasError = false) {
-  try {
-    const blogs = await Blog.find({})
-    const params = {
-      blog: blog
-    }
-    if (hasError) params.errorMessage = 'Error Editing Blog'
-    res.render('blog-admin/edit', params)
-  } catch {
-     res.redirect('blog-admin')
-   }
+ }
 }
 
 function saveCover(blog, coverEncoded) {
@@ -149,12 +80,12 @@ function saveCover(blog, coverEncoded) {
   }
 }
 
-function saveMain(blog, mainEncoded) {
-  if (mainEncoded == null) return
-  const main = JSON.parse(mainEncoded)
-  if (main != null && imageMimeTypes.includes(main.type)) {
-    blog.mainImage = new Buffer.from(main.data, 'base64')
-    blog.mainImageType = main.type
+function savePic1(blog, pic1Encoded) {
+  if (pic1Encoded == null) return
+  const pic1 = JSON.parse(pic1Encoded)
+  if (pic1 != null && imageMimeTypes.includes(pic1.type)) {
+    blog.pic1Image = new Buffer.from(pic1.data, 'base64')
+    blog.pic1ImageType = pic1.type
   }
 }
 

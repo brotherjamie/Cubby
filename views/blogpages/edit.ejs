@@ -10,8 +10,8 @@
 <div class="pageheading">
 <h4 class="heading">Edit Blog</h4>
 </div>
-
- <form class="contact" action="/blog-admin/edit/<%= blog.id %>?_method=PUT" method="POST">
+<h4 id="error"> <%- include('../partials/errorMessage.ejs') %></h4>
+<form class="contact" action="/blog-admin/edit/<%= blog.id %>?_method=PUT" method="POST">
    <%- include('_form_fields') %>
  </form>
  <div class="adminbar">

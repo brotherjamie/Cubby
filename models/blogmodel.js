@@ -48,11 +48,11 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  mainImage: {
+  pic1Image: {
     type: Buffer,
     required: true
   },
- mainImageType: {
+  pic1ImageType: {
     type: String,
     required: true
   },
@@ -97,9 +97,9 @@ blogSchema.virtual('coverImagePath').get(function() {
   }
 })
 
-blogSchema.virtual('mainImagePath').get(function() {
-  if (this.mainImage != null && this.mainImageType != null) {
-    return `data:${this.mainImageType};charset=utf-8;base64,${this.mainImage.toString('base64')}`
+blogSchema.virtual('pic1ImagePath').get(function() {
+  if (this.pic1Image != null && this.pic1ImageType != null) {
+    return `data:${this.pic1ImageType};charset=utf-8;base64,${this.pic1Image.toString('base64')}`
   }
 })
 

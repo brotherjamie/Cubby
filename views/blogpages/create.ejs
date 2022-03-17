@@ -11,6 +11,7 @@
   <h4 class="heading">New Blog</h4>
 </div>
 <div class="page-pad">
+  <h4 id="error"> <%- include('../partials/errorMessage.ejs') %></h4>
   <form class="contact" action="/blog-admin/create" method="POST">
     <div class="inputrow">
       <div class="inputcolumn blogwide">
@@ -29,8 +30,8 @@
     
     <div class="inputrow">
      <div class="inputcolumn file">
-       <label for="main">Main Image</label>
-       <input class="filepond pondstyle" type="file" id="main" name="main" >
+       <label for="pic1">Main Image</label>
+       <input class="filepond pondstyle" type="file" id="pic1" name="pic1" >
      </div>
      <div class="inputcolumn blogwide">
        <label for="body">Main Text:</label>
@@ -60,12 +61,12 @@
      </div>
     </div>
     
-    <%- include('../partials/errorMessage.ejs') %>
+   
     <div class="adminbar">
         <a href="/blog-admin" class="adminbuttons cancelblog">Cancel</a>
         <button type="submit" class="adminbuttons newblog">Save</button>
     </div>
-  </form>
+  </form> 
 </div>
 </div>
 <%- include("../partials/footer.ejs") %>   
